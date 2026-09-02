@@ -1,0 +1,31 @@
+@media (max-width: 640px) {
+  .navbar-inner {
+    padding: 0 12px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .auth-container {
+    margin: 30px auto;
+    padding: 16px;
+  }
+
+  .profile-stats {
+    gap: 20px;
+  }
+
+  .post-actions {
+    gap: 16px;
+  }
+
+  .toast-container {
+    left: 12px;
+    right: 12px;
+  }
+
+  .toast {
+    max-width: 100%;
+  }
+}
