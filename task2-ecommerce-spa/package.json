@@ -1,0 +1,17 @@
+{
+  "name": "shopeasy-express",
+  "version": "2.1.0",
+  "description": "Stylish SPA e-commerce with Express.js – Contact Us, user dropdown, professional footer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "uuid": "^10.0.0"
+  },
+  "license": "MIT"
+}
