@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEasy — Premium E-Commerce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo" data-page="home">
+        <span class="logo-icon">◆</span> ShopEasy
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+        <li><a href="#" data-page="products" class="nav-link">Shop</a></li>
+        <li><a href="#" data-page="orders" class="nav-link" id="nav-orders" style="display:none">Orders</a></li>
+        <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="cart-btn" title="Cart" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="badge" id="cart-count">0</span>
+        </button>
+        <div id="auth-guest" class="auth-guest">
+          <button class="btn btn-ghost" id="login-btn" type="button">Login</button>
+          <button class="btn btn-primary" id="register-btn" type="button">Sign Up</button>
+        </div>
+        <div id="user-menu" class="user-menu" style="display:none">
+          <button type="button" class="user-trigger" id="user-trigger">
+            <span class="user-avatar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </span>
+            <span class="user-id" id="user-display-name">User</span>
+            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="user-dropdown">
+            <button type="button" data-page="orders" class="dropdown-item">My Orders</button>
+            <button type="button" id="logout-btn" class="dropdown-item logout">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="app">
+    <section id="page-home" class="page active">
+      <div class="hero">
+        <div class="hero-content">
+          <p class="hero-eyebrow fade-up">Premium Lifestyle</p>
+          <h1 class="fade-up delay-1">Discover Products<br>That <span class="gradient-text">Inspire</span></h1>
+          <p class="hero-sub fade-up delay-2">Curated tech, fashion & lifestyle essentials. Free shipping on orders over $50.</p>
+          <div class="hero-cta fade-up delay-3">
+            <button class="btn btn-primary btn-lg" data-page="products">Shop Collection</button>
+            <button class="btn btn-outline btn-lg" data-page="contact">Contact Us</button>
+          </div>
+        </div>
+        <div class="hero-visual fade-up delay-2">
+          <div class="hero-card">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80" alt="Featured">
+            <div class="hero-card-badge">New Arrival</div>
+          </div>
+        </div>
+      </div>
+      <div class="section features">
+        <div class="feature-card"><div class="feature-icon">🚚</div><h3>Free Shipping</h3><p>On orders over $50</p></div>
+        <div class="feature-card"><div class="feature-icon">🔒</div><h3>Secure Checkout</h3><p>Encrypted payments</p></div>
+        <div class="feature-card"><div class="feature-icon">↩️</div><h3>Easy Returns</h3><p>30-day money back</p></div>
+        <div class="feature-card"><div class="feature-icon">⭐</div><h3>Top Rated</h3><p>4.8+ average rating</p></div>
+      </div>
+      <div class="section">
+        <div class="section-header">
+          <h2>Featured Products</h2>
+          <button class="btn btn-ghost" data-page="products">View All →</button>
+        </div>
+        <div class="product-grid" id="featured-grid"></div>
+      </div>
+    </section>
+
+    <section id="page-products" class="page">
+      <div class="page-header">
+        <h1>Our Collection</h1>
+        <p>Hand-picked products for modern living</p>
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="Audio">Audio</button>
+        <button class="filter-btn" data-cat="Wearables">Wearables</button>
+        <button class="filter-btn" data-cat="Accessories">Accessories</button>
+        <button class="filter-btn" data-cat="Peripherals">Peripherals</button>
+        <button class="filter-btn" data-cat="Home">Home</button>
+        <button class="filter-btn" data-cat="Footwear">Footwear</button>
+      </div>
+      <div class="product-grid" id="products-grid"></div>
+    </section>
+
+    <section id="page-detail" class="page">
+      <div class="detail-container" id="detail-content"></div>
+    </section>
+
+    <section id="page-cart" class="page">
+      <div class="page-header"><h1>Shopping Cart</h1></div>
+      <div id="cart-content"></div>
+    </section>
+
+    <section id="page-checkout" class="page">
+      <div class="page-header"><h1>Checkout</h1></div>
+      <div class="checkout-grid" id="checkout-content"></div>
+    </section>
+
+    <section id="page-orders" class="page">
+      <div class="page-header"><h1>My Orders</h1></div>
+      <div id="orders-content"></div>
+    </section>
+
+    <section id="page-order-detail" class="page">
+      <div id="order-detail-content"></div>
+    </section>
+
+    <section id="page-contact" class="page">
+      <div class="page-header">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>Questions about an order or product? Send a message and our team will reply within 24 hours.</p>
+          <div class="contact-item"><strong>Email</strong><span>hello@shopeasy.demo</span></div>
+          <div class="contact-item"><strong>Phone</strong><span>+1 (555) 012-3456</span></div>
+          <div class="contact-item"><strong>Hours</strong><span>Mon–Fri, 9am–6pm EST</span></div>
+        </div>
+        <div class="contact-form-card">
+          <form id="contact-form">
+            <div class="form-group"><label>Name</label><input type="text" name="name" required placeholder="Your name"></div>
+            <div class="form-group"><label>Email</label><input type="email" name="email" required placeholder="you@example.com"></div>
+            <div class="form-group"><label>Subject</label><input type="text" name="subject" required placeholder="How can we help?"></div>
+            <div class="form-group"><label>Message</label><textarea name="message" rows="5" required placeholder="Your message…"></textarea></div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            <p class="form-error" id="contact-error"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" type="button">×</button>
+      <div class="modal-tabs">
+        <button class="tab active" data-tab="login" type="button">Login</button>
+        <button class="tab" data-tab="register" type="button">Register</button>
+      </div>
+      <form id="login-form" class="auth-form">
+        <div class="form-group"><label>Email</label><input type="email" name="email" required placeholder="you@example.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" name="password" required placeholder="••••••••"></div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+      <form id="register-form" class="auth-form" style="display:none">
+        <div class="form-group"><label>Full Name</label><input type="text" name="name" required placeholder="John Doe"></div>
+        <div class="form-group"><label>Email</label><input type="email" name="email" required placeholder="you@example.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" name="password" required minlength="6" placeholder="Min 6 characters"></div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+      <p class="form-error" id="auth-error"></p>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toasts"></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="footer-logo"><span class="logo-icon">◆</span> ShopEasy</div>
+          <p class="footer-tagline">Premium products for the modern lifestyle. Curated tech, fashion and essentials delivered to your door.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#" data-page="products">All Products</a>
+          <a href="#" data-page="products">New Arrivals</a>
+          <a href="#" data-page="products">Best Sellers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#" data-page="contact">Contact Us</a>
+          <a href="#" data-page="orders">Order Status</a>
+          <a href="#">Shipping & Returns</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#" data-page="home">About</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ShopEasy. All rights reserved. Demo project built with Express.js</p>
+        <div class="footer-social">
+          <span class="social-dot" title="Twitter">𝕏</span>
+          <span class="social-dot" title="Instagram">◉</span>
+          <span class="social-dot" title="LinkedIn">in</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
