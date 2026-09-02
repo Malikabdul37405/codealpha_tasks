@@ -30,7 +30,9 @@ export function createPostCard(post, { onDelete } = {}) {
         <span class="like-icon">${post.isLiked ? '❤️' : '🤍'}</span>
         <span class="like-count">${post.likesCount || 0}</span>
       </button>
-      <a href="/post.html?id=${post.id}">💬 <span>${post.commentsCount || 0}</span></a>
+      <a href="/post.html?id=${post.id}">
+        💬 <span>${post.commentsCount || 0}</span>
+      </a>
       ${isOwner ? `<button class="delete-btn" title="Delete">🗑️</button>` : ''}
     </div>
   `;
