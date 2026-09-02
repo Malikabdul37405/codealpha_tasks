@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register · SocialApp</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar"></nav>
+
+  <div class="auth-container">
+    <h1>Create account</h1>
+    <form id="register-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9_]+" placeholder="johndoe">
+      </div>
+      <div class="form-group">
+        <label for="name">Display name</label>
+        <input type="text" id="name" maxlength="100" placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required minlength="6" placeholder="At least 6 characters">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%;" id="submit-btn">Sign up</button>
+    </form>
+    <p class="auth-footer">Already have an account? <a href="/login.html">Log in</a></p>
+  </div>
+
+  <script type="module" src="/js/pages/register.js"></script>
+</body>
+</html>
